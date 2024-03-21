@@ -1,0 +1,5 @@
+#!/Users/yashsingh/Desktop/AI-SQL-Assistant-using-LLM/venv/bin/python3.12
+
+from idlelib.pyshell import main
+if __name__ == '__main__':
+    main()

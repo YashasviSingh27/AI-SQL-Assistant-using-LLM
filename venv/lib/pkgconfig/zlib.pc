@@ -1,0 +1,13 @@
+prefix=/Users/yashsingh/Desktop/AI-SQL-Assistant-using-LLM/venv
+exec_prefix=/Users/yashsingh/Desktop/AI-SQL-Assistant-using-LLM/venv
+libdir=/Users/yashsingh/Desktop/AI-SQL-Assistant-using-LLM/venv/lib
+sharedlibdir=/Users/yashsingh/Desktop/AI-SQL-Assistant-using-LLM/venv/lib
+includedir=/Users/yashsingh/Desktop/AI-SQL-Assistant-using-LLM/venv/include
+
+Name: zlib
+Description: zlib compression library
+Version: 1.2.13
+
+Requires:
+Libs: -L${libdir} -L${sharedlibdir} -lz
+Cflags: -I${includedir}
