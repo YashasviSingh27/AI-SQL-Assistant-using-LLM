@@ -37,14 +37,19 @@ prompt = [
     SELECT Teacher_Name, AVG(Marks) AS Avg_Marks
     FROM STUDENT_TEACHER_EXPERIENCE
     GROUP BY Teacher_Name;
+
+    Example 2 - provide all the data
+    The SQL command will be something like this:
+    SELECT * FROM STUDENT_TEACHER_EXPERIENCE;
+    give all the data in response
     
-    Example 2 - List all the students who scored above 80 marks in subjects taught by teachers with more than 5 years of experience.
+    Example 3 - List all the students who scored above 80 marks in subjects taught by teachers with more than 5 years of experience.
     The SQL command will be something like this: 
     SELECT Student_Name, Student_Subject, Marks, Teacher_Name, Teacher_Subject, Teacher_Experience, Teacher_Designation
     FROM STUDENT_TEACHER_EXPERIENCE
     WHERE Marks > 80 AND Teacher_Experience > 5;
     
-    Example 3 - Find the total number of students taught by each teacher, categorized by their designation.
+    Example 4 - Find the total number of students taught by each teacher, categorized by their designation.
     The SQL command will be something like this: 
     SELECT Teacher_Name, Teacher_Designation, COUNT(Student_Name) AS Num_Students
     FROM STUDENT_TEACHER_EXPERIENCE
@@ -67,7 +72,10 @@ if submit:
     response = get_gemini_response(question, prompt)
     print(response)
     response = read_sql_query(response, "student.db")
-    st.subheader("The Response is")
-    for row in response:
-        print(row)
-        st.header(row)
+
+    # Display results in a table
+    if response:  # Check if there are any results
+        st.subheader("The Response is")
+        st.dataframe(response, height=400)  # Display results as a DataFrame with a height of 300px
+    else:
+        st.subheader("No results found for your query.") 
